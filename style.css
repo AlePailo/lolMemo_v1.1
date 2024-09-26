@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+    color: white;
+    font-size: 1.2rem;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    -webkit-user-drag: none;
+    -ms-user-drag: none;
+    font-family: 'Protest Revolution', sans-serif;
+}
+
+body {
+    height: 100svh;
+    width: 100%;
+    gap: 1.5%;
+    background: linear-gradient(rgba(0, 0, 0, 0.25),rgba(0, 0, 0, 0.25)),url("img/background-img.jpg");
+    background-size: cover;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+.hide {
+    display: none;
+}
+
+
+
+
+
+/* INFO DIV ELEMENTS */
+
+.info {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    margin-top: 2.5%;
+    visibility: hidden;
+}
+
+.info :nth-child(3) {
+    margin-right: 7.5%;
+}
+
+.info div {
+    text-align: center;
+}
+
+.flex-coulmn-center-all {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+/* CONTAINER ELEMENTS */
+
+.container {
+    width:70vw;
+    height:70vw;
+    border: 7.5px solid #7575a3;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5%;
+    padding: 1% 0;
+    perspective: 2000px;
+    margin-bottom: 1%;
+}
+
+
+/* SINGLE CARD */
+
+.card {
+    width: calc((100% - 10.5%) / 6);
+    height: calc((100% - 4.5%) / 3);
+    position: relative;
+    transition: 0.25s all ease;
+    transform-style: preserve-3d;
+}
+
+.card:active {
+    transform:scale(.95)
+}
+
+
+/* CARD'S FRONT AND BACK */
+
+.back,.front {
+    width:100%;
+    height:100%;
+    border: 2px solid #7575a3;
+    border-radius: 10px;
+    position:absolute;
+    transition: 0.25s all ease;
+    backface-visibility: hidden;  /* hide reversed back */
+}
+
+.front {
+    transform: rotateY(180deg)  /* show front instead of reversed back */
+}
+
+.back:hover {
+    transform : scale(1.05);
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+}
+
+
+
+
+
+/* WIN/LOSE SCREEN */
+
+.front_screen {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10%;
+}
+
+.fa-arrow-rotate-left {
+    transition: 1s all ease;
+    
+    /*&:hover {
+        transform: rotate(-180deg);
+    }*/
+}
+
+.fa-arrow-rotate-left:hover {
+    transform: rotate(-180deg);
+}
+
+.tryAgain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+/* WIN SCREEN SCORE */
+
+#wScore {
+    font-size: 1.5rem;
+}
+
+
+
+
+
+/* PRE-GAME SCREEN */
+
+#playCover {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+
+/* START BUTTON */
+
+#startGame {
+    background: rgba(0, 0, 0, 0.9);
+    border: 3px solid #7575a3;
+    box-shadow: 0px 7px 0px 0px #000;
+    border-radius: 10px;
+    padding: 2% 2.5%;
+    font-size: 2rem;
+
+    /*&:hover {
+        color: gold;
+        box-shadow: 0px 7px 0px -2px gold;
+        transition: 1s all ease;
+    }
+
+    &:active {
+        transform: translateY(7px);
+        color: #fff;
+        box-shadow: 0px 2px 0px 0px #000;
+        transition: 0.1s all ease;
+    }*/
+}
+
+#startGame:hover {
+    color: gold;
+    box-shadow: 0px 7px 0px -2px gold;
+    transition: 1s all ease;
+}
+
+#startGame:active {
+    transform: translateY(7px);
+    color: #fff;
+    box-shadow: 0px 2px 0px 0px #000;
+    transition: 0.1s all ease;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        width: 90vw;
+        height: 90vw;
+    }
+}
